@@ -89,14 +89,11 @@ public class UserConnection {
         } else {
             System.out.println("Failed to establish connection.");
         }
-        
-        // Add a user
-          User user = new User();
-          uc.addUser( user);
-        
-        // Display user
-         uc.displayUsers();
+    
 		
+         User user = new User("John", "Doe", "johndoe", "password123", "New York", "johndoe@example.com", "1234567890");
+        uc.addUser(user);
+        uc.displayUsers();
 	}
 
 	
