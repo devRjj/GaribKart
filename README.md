@@ -19,4 +19,22 @@ You enter the application.
 
 
 
+**How to update the database?**
+garibKart has 4 tables in the database:
+1. users
+2. product
+3. roles
+4. purchase history.
 
+**For inserting users in the table. **
+     you can use the addUser() method of UserConnection class.
+
+**For adding the products in the product table**
+     You can use the insertData() method from the ProductOperation class.
+
+**For purchase history**
+     You can use the recordPurchase() method of ProductOperation class.
+
+**For user and admin roles**
+     There is a UserConnection class where you can update the roles using the insertRole().
+     You can assign roles to the user using assignRoleToUser();
