@@ -2,46 +2,21 @@
 
 # Rules for Creating feature branch from "dev"
 
-**Checkout the dev branch**
-git checkout dev
+The application flow.
 
-**pull latest code from dev**
-git pull origin dev
+You enter the application.
+**The application will ask you for login or register.**
+     If you skip login or register it will show you the product list as a guest user.
+     You will be able to see the product. 
+          If you still choose to buy any product again it will prompt you to login or register. 
+          If you do you will be able to checkout else the application will be closed with thank you for visiting GaribKart message.
+          
+**If you login and the logged in user is:**
+     An admin: it will open all the operations admin can perform.
+     User: Buy product, check cart, etc.
+     
+**If you register again it will ask you to login then the same process as mentioned in the previous option.**
 
-**Create a new feature branch**
-1. git branch branch_name
-2. git checkout branch_name
-shortcut:
-1. git checkout -b branch_name
-     eg: git checkout -b registration(it will directly create a new branch and switch to that branch)
-
-your code...
-
-**Now push the code to the dev branch.**
-1. git add .
-2. git commit -m "message of what you did"
-3. git push origin registration(if branch name is registration)
-
-**Merging the changes into the dev**
-1. git checkout dev
-2. git pull origin dev
-3. git merge registration(if branch name is registration from where you want to merge the code)
-4. git push origin dev
-
-**Merge dev into uat:**
-Once the changes in dev are stable, they are merged into the uat branch for further testing.
-
-**Checkout the uat branch**
-git checkout uat
-
-**Pull the latest changes**
-git pull origin uat
-
-**Merge the dev branch into uat**
-git merge dev
-
-**Push the changes to the remote uat branch**
-git push origin uat
 
 
 
