@@ -49,7 +49,6 @@ public class Registration {
 			String emailId = sc.next();
 			System.out.println("Enter mobile number :");
 			String mobNumber = sc.next();
-			
 
 			User user = new User(id, firstName, lastName, userName, password, city, emailId, mobNumber);
 
@@ -57,7 +56,7 @@ public class Registration {
 			boolean userAdded = uc.addUser(user);
 
 			if (userAdded == true) {
-				uc.assignRoleToUser(id, 2); 
+				uc.assignRoleToUser(id, 2);
 				System.out.println("User Register Successfully.");
 				return true;
 			} else {
@@ -72,50 +71,48 @@ public class Registration {
 
 	}
 
-	
 	public Integer loginUser() {
-	    try (Connection conn = getConnection();) {
-	        System.out.println("Please login for further operation");
-	        System.out.println("Enter username");
-	        String username = sc.next();
+		try (Connection conn = getConnection();) {
+			System.out.println("Please login for further operation");
+			System.out.println("Enter username");
+			String username = sc.next();
 
-	        System.out.println("Enter Password");
-	        String password = sc.next();
+			System.out.println("Enter Password");
+			String password = sc.next();
 
-	        UserConnection uc = new UserConnection(this.config);
-	        User user = uc.verifyUsers(username, password);
+			UserConnection uc = new UserConnection(this.config);
+			User user = uc.verifyUsers(username, password);
 
-	        if (user != null) {
-	            System.out.println("Logged in successfully");
-	            System.out.println("Role: " + user.getRole());
-	            if ("admin".equalsIgnoreCase(user.getRole())) {
-	                System.out.println("Welcome, Admin!");
-	                Administration admin = new Administration();
-	                admin.adminMethods(config);
-	            } else {
-	                System.out.println("Welcome, User!");
-	            }
+			if (user != null) {
+				System.out.println("Logged in successfully");
+				System.out.println("Role: " + user.getRole());
+				if ("admin".equalsIgnoreCase(user.getRole())) {
+					System.out.println("Welcome, Admin!");
+					Administration admin = new Administration();
+					admin.adminMethods(config);
+					return null;
+				} else {
+					System.out.println("Welcome, User!");
+				}
 
-	            return user.getId();
-	        } else {
-	            System.out.println("The login was unsuccessful");
-	            System.out.println("Please type 'y' to register 'n' to discard");
+				return user.getId();
+			} else {
+				System.out.println("The login was unsuccessful");
+				System.out.println("Please type 'y' to register 'n' to discard");
 
-	            String wantToRegister = sc.next();
+				String wantToRegister = sc.next();
 
-	            if (wantToRegister.equalsIgnoreCase("y") || wantToRegister.equalsIgnoreCase("yes")) {
-	                Registration reg = new Registration(this.config);
-	                reg.registerUser();
-	            }
+				if (wantToRegister.equalsIgnoreCase("y") || wantToRegister.equalsIgnoreCase("yes")) {
+					Registration reg = new Registration(this.config);
+					reg.registerUser();
+				}
 
-	            return null;
-	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
-	    return null;
+				return null;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
-
-
 
 }

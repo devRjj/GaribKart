@@ -9,9 +9,9 @@ import java.util.Scanner;
 import com.garibKart.propertiesfile.ConfigLoader;
 
 public class TestProductOperation {
-	
+
 	public void addProduct() throws FileNotFoundException, IOException {
-		
+
 		ConfigLoader config = new ConfigLoader("config.properties");
 		Scanner sc = new Scanner(System.in);
 

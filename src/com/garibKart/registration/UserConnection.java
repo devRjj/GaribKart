@@ -82,75 +82,68 @@ public class UserConnection {
 	}
 
 	public User verifyUsers(String username, String password) {
-	    System.out.println("verifying the login...");
-	    String query = "SELECT u.user_id, u.username, r.role_name FROM users u " +
-	                   "JOIN roles r ON u.role_id = r.role_id " +
-	                   "WHERE u.username = ? AND u.user_password = ?";
+		System.out.println("verifying the login...");
+		String query = "SELECT u.user_id, u.username, r.role_name FROM users u "
+				+ "JOIN roles r ON u.role_id = r.role_id " + "WHERE u.username = ? AND u.user_password = ?";
 
-	    try (Connection conn = getConnection(); 
-	         PreparedStatement pstmt = conn.prepareStatement(query)) {
+		try (Connection conn = getConnection(); PreparedStatement pstmt = conn.prepareStatement(query)) {
 
-	        pstmt.setString(1, username);
-	        pstmt.setString(2, password);
-	        try (ResultSet rs = pstmt.executeQuery()) {
-	            if (rs.next()) {
-	                User user = new User();
-	                user.setId(rs.getInt("user_id"));
-	                user.setUserName(rs.getString("username"));
-	                user.setRole(rs.getString("role_name"));
-	                return user;
-	            }
-	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+			pstmt.setString(1, username);
+			pstmt.setString(2, password);
+			try (ResultSet rs = pstmt.executeQuery()) {
+				if (rs.next()) {
+					User user = new User();
+					user.setId(rs.getInt("user_id"));
+					user.setUserName(rs.getString("username"));
+					user.setRole(rs.getString("role_name"));
+					return user;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
-	    // If no record is found, return null
-	    return null;
+		// If no record is found.
+		return null;
 	}
 
-	
 	public void insertRole(String roleName) {
-	    String query = "INSERT INTO roles (role_name) VALUES (?)";
-	    
-	    try (Connection conn = getConnection();
-	         PreparedStatement pstmt = conn.prepareStatement(query)) {
-	        
-	        pstmt.setString(1, roleName);
-	        pstmt.executeUpdate();
-	        
-	        System.out.println("Role inserted successfully");
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+		String query = "INSERT INTO roles (role_name) VALUES (?)";
+
+		try (Connection conn = getConnection(); PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+			pstmt.setString(1, roleName);
+			pstmt.executeUpdate();
+
+			System.out.println("Role inserted successfully");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-	
+
 	public void assignRoleToUser(int userId, int roleId) {
-	    String query = "UPDATE users SET role_id = ? WHERE user_id = ?";
-	    
-	    try (Connection conn = getConnection();
-	         PreparedStatement pstmt = conn.prepareStatement(query)) {
-	        
-	        pstmt.setInt(1, roleId);
-	        pstmt.setInt(2, userId);
-	        pstmt.executeUpdate();
-	        
-	        System.out.println("Role assigned to user successfully");
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+		String query = "UPDATE users SET role_id = ? WHERE user_id = ?";
+
+		try (Connection conn = getConnection(); PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+			pstmt.setInt(1, roleId);
+			pstmt.setInt(2, userId);
+			pstmt.executeUpdate();
+
+			System.out.println("Role assigned to user successfully");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-	
+
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-		UserConnection uc = new UserConnection(new ConfigLoader("config.properties")); 
-		uc.assignRoleToUser(1001, 1); 
-		uc.assignRoleToUser(1002, 2); 
-		uc.assignRoleToUser(1004, 1); 
-		uc.assignRoleToUser(1005, 2); 
-		uc.assignRoleToUser(1006, 2); 
-
+		UserConnection uc = new UserConnection(new ConfigLoader("config.properties"));
+		uc.assignRoleToUser(1001, 1);
+		uc.assignRoleToUser(1002, 2);
+		uc.assignRoleToUser(1004, 1);
+		uc.assignRoleToUser(1005, 2);
+		uc.assignRoleToUser(1006, 2);
 
 	}
-
 
 }
