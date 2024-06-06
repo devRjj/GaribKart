@@ -9,7 +9,6 @@ public class Products {
 
 	public Products() {
 		super();
-
 	}
 
 	public Products(int id, String name, String description, double price, int quantity) {

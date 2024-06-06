@@ -1,95 +1,100 @@
 package com.garibKart.registration;
 
 public class User {
-	
- 	private int id ;
- 	private String firstName ;
- 	private String lastName ;
- 	private String userName ;
- 	private String password ;
- 	private String city ;
- 	private String emailId ;
- 	private String mobNumber ;
-	
-	public User() {}
+    
+    private int id;
+    private String firstName;
+    private String lastName;
+    private String userName;
+    private String password;
+    private String city;
+    private String emailId;
+    private String mobNumber;
+    private String role;
 
-	public User(String firstName, String lastName, String userName, String password, String city,
-			String emailId, String mobNumber) {
-		
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.userName = userName;
-		this.password = password;
-		this.city = city;
-		this.emailId = emailId;
-		this.mobNumber = mobNumber;
-	}
+    public User() {}
 
-	public int getId() {
-		return id;
-	}
+    public User(int id, String firstName, String lastName, String userName, String password, String city, String emailId, String mobNumber) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.password = password;
+        this.city = city;
+        this.emailId = emailId;
+        this.mobNumber = mobNumber;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public void setRole(String role) {
+        this.role = role;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public String getRole() {
+        return role;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public String getUserName() {
-		return userName;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getUserName() {
+        return userName;
+    }
 
-	public String getCity() {
-		return city;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getEmailId() {
-		return emailId;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
+    public String getCity() {
+        return city;
+    }
 
-	public String getMobNumber() {
-		return mobNumber;
-	}
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-	public void setMobNumber(String mobNumber) {
-		this.mobNumber = mobNumber;
-	};
-	
-	
+    public String getEmailId() {
+        return emailId;
+    }
 
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
 
+    public String getMobNumber() {
+        return mobNumber;
+    }
+
+    public void setMobNumber(String mobNumber) {
+        this.mobNumber = mobNumber;
+    }
 }
+

@@ -15,7 +15,7 @@ public class Credentials {
 			
 			properties.setProperty("db.url", "jdbc:mysql://localhost:3306/garibKart");
 			properties.setProperty("db.username", "root");
-			properties.setProperty("db.password", "root");
+			properties.setProperty("db.password", "dvrj@0005");
 			
 			properties.store(fs, null);
 			

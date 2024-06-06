@@ -10,24 +10,24 @@ public class Display {
 	static Bill bill = new Bill();
 
 	public static void main(String[] args) {
-		System.out.println("***********************************************************************************");
-		System.out.println("    GaribKart online shopping ");
-		System.out.println(" ***********************************************************************************");
+		System.out.println("**********************************************************************");
+		System.out.println("    	      	   GaribKart online shopping                 ");
+		System.out.println("**********************************************************************");
 		System.out.println(
 				"                                                                                                                                                   ");
-		System.out.println("Hello, lets do shopping with us");
-		System.out.println("                                                                            ");
-		System.out.println("                                                                            ");
-		System.out.println("---------------------------------------------------------");
-		System.out.println("--------------------------------------------------------");
-		System.out.println("=====================================================================================");
+		System.out.println("		Hello, Thank you for choosing us.                      ");
+		System.out.println("                                                                       ");
+		System.out.println("                                                                       ");
+		System.out.println("-----------------------------------------------------------------------");
+		System.out.println("-----------------------------------------------------------------------");
+		System.out.println("=======================================================================");
 		double amount = 0;
 		do {
 			// System.out.println(Insertdata.showProducts());
 			System.out.println("1.Mobile   >>>" + "  OnePlus");
-			System.out.println("-----------------------------------------");
+			System.out.println("-------------------------------------------------------------------");
 			System.out.println("2.Laptop   >>>" + "  HP Laptop ");
-			System.out.println("-----------------------------------------");
+			System.out.println("-------------------------------------------------------------------");
 			System.out.println("3.Television   >>>" + "LG TV with 108 cm   ");
 			System.out.println("-----------------------------------------");
 			System.out.println("4.Office chair   >>>" + "umbar Support with Comfortable Armrest");
