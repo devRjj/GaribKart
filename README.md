@@ -1,8 +1,6 @@
 # GaribKart
 
-# Rules for Creating feature branch from "dev"
-
-The application flow.
+# The application flow.
 
 You enter the application.
 **The application will ask you for login or register.**
